@@ -274,9 +274,9 @@ SshSearchProvider.prototype = {
         let res = terms.map(function (term) { return new RegExp(term, 'i'); });
         
         results = results.concat(this._checkHostnames(this._configHosts, terms));
-        results = results.concat(this._checkHostnames(this._knownHosts, terms));
-        results = results.concat(this._checkHostnames(this._sshknownHosts1, terms));
-        results = results.concat(this._checkHostnames(this._sshknownHosts2, terms));
+//        results = results.concat(this._checkHostnames(this._knownHosts, terms));
+//        results = results.concat(this._checkHostnames(this._sshknownHosts1, terms));
+//        results = results.concat(this._checkHostnames(this._sshknownHosts2, terms));
 
         // GNOME 3.5.1 or so introduced passing result asynchronously
         // via pushResults() so try that first - if it fails then
