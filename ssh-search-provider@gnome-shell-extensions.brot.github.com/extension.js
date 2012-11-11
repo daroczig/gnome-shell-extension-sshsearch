@@ -227,14 +227,8 @@ SshSearchProvider.prototype = {
         if (id.user.length != 0) {
             target = id.user + '@' + target;
         }
-        if (id.port == 22) {
-            // don't call with the port option, because the host definition
-            // could be from the ~/.ssh/config file
-            Util.spawn([this._terminal_app, '-e', 'ssh ' + target]);
-        }
-        else {
-            Util.spawn([this._terminal_app, '-e', 'ssh -p ' + id.port + ' ' + target]);
-        }
+	// open connection in a new LilyTerm tab named to `target`
+	Util.spawn(['lilyterm', '--join', '--tab_names', target, '--execute', 'ssh', target]);
     },
 
     _checkHostnames: function(hostnames, terms) {
